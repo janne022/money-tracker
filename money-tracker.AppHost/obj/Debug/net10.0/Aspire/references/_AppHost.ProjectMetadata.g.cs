@@ -17,5 +17,5 @@ public class money_tracker_AppHost
     /// <summary>
     /// The path to the Aspire Host project.
     /// </summary>
-    public static string ProjectPath => """C:\Users\janni\source\repos\money tracker\money tracker.AppHost""";
+    public static string ProjectPath => """C:\Users\janni\source\repos\money tracker\money-tracker.AppHost""";
 }

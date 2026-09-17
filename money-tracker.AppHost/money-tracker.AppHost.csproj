@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\money tracker.Server\money tracker.Server.csproj" />
+    <ProjectReference Include="..\money-tracker.Server\money-tracker.Server.csproj" />
   </ItemGroup>
 
   <ItemGroup>

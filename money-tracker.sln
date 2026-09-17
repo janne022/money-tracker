@@ -1,14 +1,14 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.0.0
 MinimumVisualStudioVersion = 17.8.0.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "money tracker.AppHost", "money tracker.AppHost\money tracker.AppHost.csproj", "{69CA7301-EEE1-46FE-ACA6-17F3EEEAEAF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "money-tracker.AppHost", "money-tracker.AppHost\money-tracker.AppHost.csproj", "{69CA7301-EEE1-46FE-ACA6-17F3EEEAEAF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "money tracker.Server", "money tracker.Server\money tracker.Server.csproj", "{F4CF22A1-A4D1-45FA-9F59-1AEE3484D590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "money-tracker.Server", "money-tracker.Server\money-tracker.Server.csproj", "{F4CF22A1-A4D1-45FA-9F59-1AEE3484D590}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "frontend", "frontend\frontend.esproj", "{A92E17F3-7159-4185-90E9-7D8D1A550253}"
 EndProject
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,7 +27,6 @@ Global
 		{A92E17F3-7159-4185-90E9-7D8D1A550253}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A92E17F3-7159-4185-90E9-7D8D1A550253}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A92E17F3-7159-4185-90E9-7D8D1A550253}.Release|Any CPU.Build.0 = Release|Any CPU
-
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

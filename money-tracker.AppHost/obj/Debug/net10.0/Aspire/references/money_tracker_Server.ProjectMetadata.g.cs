@@ -15,7 +15,7 @@ public class money_tracker_Server : global::Aspire.Hosting.IProjectMetadata
     /// <summary>
     /// The path to the money_tracker_Server project.
     /// </summary>
-    public string ProjectPath => """C:\Users\janni\source\repos\money tracker\money tracker.Server\money tracker.Server.csproj""";
+    public string ProjectPath => """C:\Users\janni\source\repos\money tracker\money-tracker.Server\money-tracker.Server.csproj""";
 
     /// <summary>
     /// Gets a value indicating whether building the project before running it should be suppressed.

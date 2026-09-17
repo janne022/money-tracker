@@ -1,6 +1,6 @@
 {
   "appHost": {
-    "path": "money tracker.AppHost/money tracker.AppHost.csproj"
+    "path": "money-tracker.AppHost/money-tracker.AppHost.csproj"
   },
   "channel": "stable"
 }

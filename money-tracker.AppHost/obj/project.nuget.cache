@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0aIiWOcnRDM=",
+  "dgSpecHash": "+5NltXS97l4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.AppHost\\money tracker.AppHost.csproj",
+  "projectFilePath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.AppHost\\money-tracker.AppHost.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\janni\\.nuget\\packages\\aspire.hosting\\13.5.3\\aspire.hosting.13.5.3.nupkg.sha512",
     "C:\\Users\\janni\\.nuget\\packages\\aspire.hosting.apphost\\13.5.3\\aspire.hosting.apphost.13.5.3.nupkg.sha512",

@@ -1324,11 +1324,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.Server\\money tracker.Server.csproj",
-      "projectName": "money tracker.Server",
-      "projectPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.Server\\money tracker.Server.csproj",
+      "projectUniqueName": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.Server\\money-tracker.Server.csproj",
+      "projectName": "money-tracker.Server",
+      "projectPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.Server\\money-tracker.Server.csproj",
       "packagesPath": "C:\\Users\\janni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.Server\\obj\\",
+      "outputPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

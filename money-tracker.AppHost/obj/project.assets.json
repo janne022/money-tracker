@@ -3911,11 +3911,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.AppHost\\money tracker.AppHost.csproj",
-      "projectName": "money tracker.AppHost",
-      "projectPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.AppHost\\money tracker.AppHost.csproj",
+      "projectUniqueName": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.AppHost\\money-tracker.AppHost.csproj",
+      "projectName": "money-tracker.AppHost",
+      "projectPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.AppHost\\money-tracker.AppHost.csproj",
       "packagesPath": "C:\\Users\\janni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.AppHost\\obj\\",
+      "outputPath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.AppHost\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

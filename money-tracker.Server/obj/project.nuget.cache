@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5wGwlpFg7u8=",
+  "dgSpecHash": "722Pr/hBooI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\janni\\source\\repos\\money tracker\\money tracker.Server\\money tracker.Server.csproj",
+  "projectFilePath": "C:\\Users\\janni\\source\\repos\\money tracker\\money-tracker.Server\\money-tracker.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\janni\\.nuget\\packages\\aspire.stackexchange.redis\\13.5.3\\aspire.stackexchange.redis.13.5.3.nupkg.sha512",
     "C:\\Users\\janni\\.nuget\\packages\\aspire.stackexchange.redis.outputcaching\\13.5.3\\aspire.stackexchange.redis.outputcaching.13.5.3.nupkg.sha512",
