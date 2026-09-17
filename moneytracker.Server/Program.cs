@@ -1,3 +1,5 @@
+using moneytracker.Server.Infrastructure.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
@@ -13,6 +15,12 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddControllers();
 
+builder.Services.AddAuthorization();
+
+builder.Services.AddAuthentication();
+
+builder.AddNpgsqlDbContext<AppDbContext>("serverdb");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +30,9 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseOutputCache();
 

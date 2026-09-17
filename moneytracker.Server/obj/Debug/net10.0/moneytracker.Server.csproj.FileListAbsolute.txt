@@ -61,3 +61,13 @@ C:\Users\janni\source\repos\money tracker\moneytracker.Server\obj\Debug\net10.0\
 C:\Users\janni\source\repos\money tracker\moneytracker.Server\obj\Debug\net10.0\moneytracker.Server.pdb
 C:\Users\janni\source\repos\money tracker\moneytracker.Server\obj\Debug\net10.0\moneytracker.Server.genruntimeconfig.cache
 C:\Users\janni\source\repos\money tracker\moneytracker.Server\obj\Debug\net10.0\ref\moneytracker.Server.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Npgsql.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Npgsql.DependencyInjection.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\janni\source\repos\money tracker\moneytracker.Server\bin\Debug\net10.0\Npgsql.OpenTelemetry.dll

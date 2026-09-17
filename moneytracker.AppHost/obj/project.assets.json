@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "Aspire.Hosting/13.5.3": {
+      "Aspire.Hosting/13.5.4": {
         "type": "package",
         "dependencies": {
           "AspNetCore.HealthChecks.Uris": "9.0.0",
@@ -90,11 +90,11 @@
           "buildTransitive/net8.0/Aspire.Hosting.targets": {}
         }
       },
-      "Aspire.Hosting.AppHost/13.5.3": {
+      "Aspire.Hosting.AppHost/13.5.4": {
         "type": "package",
         "dependencies": {
           "AspNetCore.HealthChecks.Uris": "9.0.0",
-          "Aspire.Hosting": "13.5.3",
+          "Aspire.Hosting": "13.5.4",
           "Google.Protobuf": "3.34.1",
           "Grpc.AspNetCore": "2.80.0",
           "Grpc.Net.ClientFactory": "2.80.0",
@@ -144,11 +144,11 @@
           "buildMultiTargeting/Aspire.Hosting.AppHost.targets": {}
         }
       },
-      "Aspire.Hosting.JavaScript/13.5.3": {
+      "Aspire.Hosting.JavaScript/13.5.4": {
         "type": "package",
         "dependencies": {
           "AspNetCore.HealthChecks.Uris": "9.0.0",
-          "Aspire.Hosting": "13.5.3",
+          "Aspire.Hosting": "13.5.4",
           "Google.Protobuf": "3.34.1",
           "Grpc.AspNetCore": "2.80.0",
           "Grpc.Net.ClientFactory": "2.80.0",
@@ -190,12 +190,59 @@
           }
         }
       },
-      "Aspire.Hosting.Redis/13.5.3": {
+      "Aspire.Hosting.PostgreSQL/13.5.4": {
+        "type": "package",
+        "dependencies": {
+          "AspNetCore.HealthChecks.NpgSql": "9.0.0",
+          "AspNetCore.HealthChecks.Uris": "9.0.0",
+          "Aspire.Hosting": "13.5.4",
+          "Google.Protobuf": "3.34.1",
+          "Grpc.AspNetCore": "2.80.0",
+          "Grpc.Net.ClientFactory": "2.80.0",
+          "Grpc.Tools": "2.80.0",
+          "Humanizer.Core": "3.0.10",
+          "JsonPatch.Net": "5.0.2",
+          "KubernetesClient": "19.0.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.11",
+          "Microsoft.Extensions.Configuration.Binder": "10.0.11",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "10.0.11",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.11",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.30",
+          "Microsoft.Extensions.FileSystemGlobbing": "10.0.11",
+          "Microsoft.Extensions.Hosting": "10.0.11",
+          "Microsoft.Extensions.Hosting.Abstractions": "10.0.11",
+          "Microsoft.Extensions.Http": "10.0.11",
+          "Microsoft.Extensions.Logging": "10.0.11",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.11",
+          "Microsoft.Extensions.Options": "10.0.11",
+          "Microsoft.Extensions.Primitives": "10.0.11",
+          "ModelContextProtocol": "1.3.0",
+          "Newtonsoft.Json": "13.0.4",
+          "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.15.3",
+          "OpenTelemetry.Extensions.Hosting": "1.15.3",
+          "Polly.Core": "8.6.6",
+          "Semver": "3.0.0",
+          "StreamJsonRpc": "2.25.29",
+          "System.IO.Hashing": "10.0.8",
+          "YamlDotNet": "16.3.0"
+        },
+        "compile": {
+          "lib/net8.0/Aspire.Hosting.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Aspire.Hosting.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Aspire.Hosting.Redis/13.5.4": {
         "type": "package",
         "dependencies": {
           "AspNetCore.HealthChecks.Redis": "9.0.0",
           "AspNetCore.HealthChecks.Uris": "9.0.0",
-          "Aspire.Hosting": "13.5.3",
+          "Aspire.Hosting": "13.5.4",
           "Google.Protobuf": "3.34.1",
           "Grpc.AspNetCore": "2.80.0",
           "Grpc.Net.ClientFactory": "2.80.0",
@@ -234,6 +281,23 @@
         },
         "runtime": {
           "lib/net8.0/Aspire.Hosting.Redis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AspNetCore.HealthChecks.NpgSql/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.11",
+          "Npgsql": "8.0.3"
+        },
+        "compile": {
+          "lib/net8.0/HealthChecks.NpgSql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.NpgSql.dll": {
             "related": ".xml"
           }
         }
@@ -1401,6 +1465,22 @@
           }
         }
       },
+      "Npgsql/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "OpenTelemetry/1.15.3": {
         "type": "package",
         "dependencies": {
@@ -1517,6 +1597,23 @@
         },
         "runtime": {
           "lib/net10.0/PolyType.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Scalar.Aspire/0.11.20": {
+        "type": "package",
+        "dependencies": {
+          "Aspire.Hosting": "13.2.1",
+          "MessagePack": "2.5.301"
+        },
+        "compile": {
+          "lib/net10.0/Scalar.Aspire.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Scalar.Aspire.dll": {
             "related": ".xml"
           }
         }
@@ -1678,17 +1775,17 @@
     }
   },
   "libraries": {
-    "Aspire.Hosting/13.5.3": {
-      "sha512": "VPsd2pgTgmwGLPTUrTD1oYR1XKMgh2ceSPBCF71NHxXSeXhSdpNHmCFDcv7tv8WgoEZDEQ76uIC6oklsEV9D/Q==",
+    "Aspire.Hosting/13.5.4": {
+      "sha512": "G3RVIjOPuYO1qaCLRvnPRgbTf0u7yQdOKex4kT4sDDOo0uR0Hoay656Ar0e28PrpR+OhpjGKt3PmQ4vCOplJbA==",
       "type": "package",
-      "path": "aspire.hosting/13.5.3",
+      "path": "aspire.hosting/13.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "aspire.hosting.13.5.3.nupkg.sha512",
+        "aspire.hosting.13.5.4.nupkg.sha512",
         "aspire.hosting.nuspec",
         "buildTransitive/net8.0/Aspire.Hosting.Integration.Analyzers.dll",
         "buildTransitive/net8.0/Aspire.Hosting.targets",
@@ -1709,10 +1806,10 @@
         "lib/net8.0/zh-Hant/Aspire.Hosting.resources.dll"
       ]
     },
-    "Aspire.Hosting.AppHost/13.5.3": {
-      "sha512": "I9h+H/s8/GDrjPc9kQwfbwUb0cXKWlwiy2wiF84rBs17Xal96QSJfYZQEhGbeZhjQ82d2Vt66GOzETYWoP1BeA==",
+    "Aspire.Hosting.AppHost/13.5.4": {
+      "sha512": "MNC9w6o2+ldz1TZCl6dDmdNyQ8R97Ys5jqyf4cFFBNnjffY/BV8/9I3Yu0SLL4PlzU5x0ODvkkeIGMpkxcDK4Q==",
       "type": "package",
-      "path": "aspire.hosting.apphost/13.5.3",
+      "path": "aspire.hosting.apphost/13.5.4",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -1722,7 +1819,7 @@
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
         "analyzers/dotnet/cs/Aspire.Hosting.Analyzers.dll",
-        "aspire.hosting.apphost.13.5.3.nupkg.sha512",
+        "aspire.hosting.apphost.13.5.4.nupkg.sha512",
         "aspire.hosting.apphost.nuspec",
         "build/Aspire.Hosting.AppHost.props",
         "build/Aspire.Hosting.AppHost.targets",
@@ -1738,36 +1835,69 @@
         "tools/net8.0/Aspire.Hosting.Tasks.dll"
       ]
     },
-    "Aspire.Hosting.JavaScript/13.5.3": {
-      "sha512": "S7cbyk/lsmxEcKD82sUeYYnyc88mQVzjZWJ0CBZZ+5AecN02XDBh1pbI33zSi4yEia8b1yOOjIR0/5F9yTh/0w==",
+    "Aspire.Hosting.JavaScript/13.5.4": {
+      "sha512": "cpr2ZxDc7stLrZt+w3FjUnt2mTLBxmpNe42DUNcqo428thQOIjdiNY6M+zTZq5i4rhv2cbsKk5lq076Q1T0muQ==",
       "type": "package",
-      "path": "aspire.hosting.javascript/13.5.3",
+      "path": "aspire.hosting.javascript/13.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "aspire.hosting.javascript.13.5.3.nupkg.sha512",
+        "aspire.hosting.javascript.13.5.4.nupkg.sha512",
         "aspire.hosting.javascript.nuspec",
         "lib/net8.0/Aspire.Hosting.JavaScript.dll",
         "lib/net8.0/Aspire.Hosting.JavaScript.xml"
       ]
     },
-    "Aspire.Hosting.Redis/13.5.3": {
-      "sha512": "ZoKvkFDCwfQrbo8Ex+ZcwgSFBKrdv7fUzlY8U6FXjen7o2Shg+ld37GDmq7VLD6vChqSyzh5q+njlUJuMEeXBA==",
+    "Aspire.Hosting.PostgreSQL/13.5.4": {
+      "sha512": "FX4JL/4FJsY/TIekq9J+ggR+p6flJqlQKGzZODo/W8us3MFlMBbxtRyPBBAwnXmsCdET2MYXLIEqzsS4rbk2fA==",
       "type": "package",
-      "path": "aspire.hosting.redis/13.5.3",
+      "path": "aspire.hosting.postgresql/13.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "aspire.hosting.redis.13.5.3.nupkg.sha512",
+        "aspire.hosting.postgresql.13.5.4.nupkg.sha512",
+        "aspire.hosting.postgresql.nuspec",
+        "lib/net8.0/Aspire.Hosting.PostgreSQL.dll",
+        "lib/net8.0/Aspire.Hosting.PostgreSQL.xml"
+      ]
+    },
+    "Aspire.Hosting.Redis/13.5.4": {
+      "sha512": "nNvSi0j2ceQtEKdBxX1ifWIP/AHYO7uWGkEn7LdfUQF0bA9oXSt7sB4cb+Z63Iv86WH2oKMZmb/SkeIEnpMT0w==",
+      "type": "package",
+      "path": "aspire.hosting.redis/13.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "README.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "aspire.hosting.redis.13.5.4.nupkg.sha512",
         "aspire.hosting.redis.nuspec",
         "lib/net8.0/Aspire.Hosting.Redis.dll",
         "lib/net8.0/Aspire.Hosting.Redis.xml"
+      ]
+    },
+    "AspNetCore.HealthChecks.NpgSql/9.0.0": {
+      "sha512": "npc58/AD5zuVxERdhCl2Kb7WnL37mwX42SJcXIwvmEig0/dugOLg3SIwtfvvh3TnvTwR/sk5LYNkkPaBdks61A==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.npgsql/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "aspnetcore.healthchecks.npgsql.9.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.npgsql.nuspec",
+        "icon.png",
+        "lib/net8.0/HealthChecks.NpgSql.dll",
+        "lib/net8.0/HealthChecks.NpgSql.xml",
+        "lib/netstandard2.0/HealthChecks.NpgSql.dll",
+        "lib/netstandard2.0/HealthChecks.NpgSql.xml"
       ]
     },
     "AspNetCore.HealthChecks.Redis/9.0.0": {
@@ -3452,6 +3582,29 @@
         "packageIcon.png"
       ]
     },
+    "Npgsql/8.0.3": {
+      "sha512": "6WEmzsQJCZAlUG1pThKg/RmeF6V+I0DmBBBE/8YzpRtEzhyZzKcK7ulMANDm5CkxrALBEC8H+5plxHWtIL7xnA==",
+      "type": "package",
+      "path": "npgsql/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.8.0.3.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "OpenTelemetry/1.15.3": {
       "sha512": "N0i6WjPoHPbZyms1ugbDIFAJFuGlpeExJMU/+XSL0lQRUkg/D0utFkDoLXf8Z1km5B+xVZ2GyMXXiX8qdeNmPg==",
       "type": "package",
@@ -3685,6 +3838,25 @@
         "polytype.nuspec"
       ]
     },
+    "Scalar.Aspire/0.11.20": {
+      "sha512": "CClEDSBdop+wak8MLlTpnDLoHkialziXavIEXrrXwWCKn10xj8I4yuJZsTKaXjN//wWCSRB0F7kMgnXE2LTt8Q==",
+      "type": "package",
+      "path": "scalar.aspire/0.11.20",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net10.0/Scalar.Aspire.dll",
+        "lib/net10.0/Scalar.Aspire.xml",
+        "lib/net8.0/Scalar.Aspire.dll",
+        "lib/net8.0/Scalar.Aspire.xml",
+        "lib/net9.0/Scalar.Aspire.dll",
+        "lib/net9.0/Scalar.Aspire.xml",
+        "scalar.aspire.0.11.20.nupkg.sha512",
+        "scalar.aspire.nuspec"
+      ]
+    },
     "Semver/3.0.0": {
       "sha512": "9jZCicsVgTebqkAujRWtC9J1A5EQVlu0TVKHcgoCuv345ve5DYf4D1MjhKEnQjdRZo6x/vdv6QQrYFs7ilGzLA==",
       "type": "package",
@@ -3899,9 +4071,11 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Aspire.Hosting.AppHost >= 13.5.3",
-      "Aspire.Hosting.JavaScript >= 13.5.3",
-      "Aspire.Hosting.Redis >= 13.5.3"
+      "Aspire.Hosting.AppHost >= 13.5.4",
+      "Aspire.Hosting.JavaScript >= 13.5.4",
+      "Aspire.Hosting.PostgreSQL >= 13.5.4",
+      "Aspire.Hosting.Redis >= 13.5.4",
+      "Scalar.Aspire >= 0.11.20"
     ]
   },
   "packageFolders": {
@@ -3956,16 +4130,24 @@
         "dependencies": {
           "Aspire.Hosting.AppHost": {
             "target": "Package",
-            "version": "[13.5.3, )",
+            "version": "[13.5.4, )",
             "autoReferenced": true
           },
           "Aspire.Hosting.JavaScript": {
             "target": "Package",
-            "version": "[13.5.3, )"
+            "version": "[13.5.4, )"
+          },
+          "Aspire.Hosting.PostgreSQL": {
+            "target": "Package",
+            "version": "[13.5.4, )"
           },
           "Aspire.Hosting.Redis": {
             "target": "Package",
-            "version": "[13.5.3, )"
+            "version": "[13.5.4, )"
+          },
+          "Scalar.Aspire": {
+            "target": "Package",
+            "version": "[0.11.20, )"
           }
         },
         "imports": [

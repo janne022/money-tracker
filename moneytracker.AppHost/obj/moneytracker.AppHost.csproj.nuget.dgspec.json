@@ -52,16 +52,24 @@
           "dependencies": {
             "Aspire.Hosting.AppHost": {
               "target": "Package",
-              "version": "[13.5.3, )",
+              "version": "[13.5.4, )",
               "autoReferenced": true
             },
             "Aspire.Hosting.JavaScript": {
               "target": "Package",
-              "version": "[13.5.3, )"
+              "version": "[13.5.4, )"
+            },
+            "Aspire.Hosting.PostgreSQL": {
+              "target": "Package",
+              "version": "[13.5.4, )"
             },
             "Aspire.Hosting.Redis": {
               "target": "Package",
-              "version": "[13.5.3, )"
+              "version": "[13.5.4, )"
+            },
+            "Scalar.Aspire": {
+              "target": "Package",
+              "version": "[0.11.20, )"
             }
           },
           "imports": [
