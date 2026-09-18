@@ -10,19 +10,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("d78298f8-a4a4-4c73-9b9a-498d94db9a89")]
-[assembly: System.Reflection.AssemblyMetadata("dcpclipath", "C:\\Users\\janni\\.aspire\\bundle\\dcp\\dcp.exe")]
-[assembly: System.Reflection.AssemblyMetadata("dcpextensionpaths", "C:\\Users\\janni\\.aspire\\bundle\\dcp\\ext\\")]
-[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "C:\\Users\\janni\\source\\repos\\money tracker\\moneytracker.AppHost")]
-[assembly: System.Reflection.AssemblyMetadata("apphostprojectname", "moneytracker.AppHost.csproj")]
-[assembly: System.Reflection.AssemblyMetadata("aspiredashboardpath", "C:\\Users\\janni\\.aspire\\bundle\\managed\\aspire-managed.exe")]
-[assembly: System.Reflection.AssemblyMetadata("aspireterminalhostpath", "C:\\Users\\janni\\.aspire\\bundle\\managed\\aspire-managed.exe")]
-[assembly: System.Reflection.AssemblyMetadata("aspireterminalhostinvocationargs", "terminalhost")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("apphostprojectbaseintermediateoutputpath", "C:\\Users\\janni\\source\\repos\\money tracker\\moneytracker.AppHost\\obj\\")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("moneytracker.AppHost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9743852f627cbe079c20b6d0ebbd320b8237f2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43ea84e9cb87590a0c1cd06ad1c37030407f3fe4")]
 [assembly: System.Reflection.AssemblyProductAttribute("moneytracker.AppHost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("moneytracker.AppHost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
