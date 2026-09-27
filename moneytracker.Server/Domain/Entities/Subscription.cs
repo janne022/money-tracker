@@ -16,5 +16,9 @@ namespace moneytracker.Server.Domain.Entities
         public Category Category { get; set; } = null!;
         public int MemberId { get; set; }
         public Member Member { get; set; } = null!;
+        public decimal Price { get; set; }
+        public BillingInterval BillingInterval { get; set; }
+        public DateTime NextBillingDate { get; set; }
+        public Status Status { get; set; }
     }
 }

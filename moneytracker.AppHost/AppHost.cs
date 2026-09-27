@@ -44,11 +44,17 @@ var postgres = builder.AddAzurePostgresFlexibleServer("moneytrackerdb")
 
 var db = postgres.AddDatabase("serverdb");
 
+var migrationService = builder.AddProject<Projects.moneytracker_MigrationService>("migrationservice")
+    .WithReference(db)
+    .WaitFor(db)
+    .WithComputeEnvironment(aca);
+
 var server = builder.AddProject<Projects.moneytracker_Server>("server")
     .WithReference(db)
     .WaitFor(db)
     .WithReference(cache)
     .WaitFor(cache)
+    .WaitFor(migrationService)
     .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints().WithComputeEnvironment(aca);
 

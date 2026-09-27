@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\moneytracker.Server\moneytracker.Server.csproj" />
+    <ProjectReference Include="..\moneytracker.MigrationService\moneytracker.MigrationService.csproj" />
   </ItemGroup>
 
   <ItemGroup>
