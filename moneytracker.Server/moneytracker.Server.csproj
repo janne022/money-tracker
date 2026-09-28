@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Update="appsettings*.json"
+      CopyToPublishDirectory="PreserveNewest"
+      Publish="true" />
     <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="13.5.4" />
     <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.5.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.12" />

@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-moneytracker.MigrationService-b04c1ae3-5a9e-4c68-a17e-32f829f0fa3d</UserSecretsId>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,4 +15,5 @@
   <ItemGroup>
     <ProjectReference Include="..\moneytracker.Server\moneytracker.Server.csproj" />
   </ItemGroup>
+
 </Project>
