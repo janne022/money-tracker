@@ -40,5 +40,4 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Container Apps via Aspire CLI
-        run: |
-          aspire deploy --non-interactive
+        run: aspire deploy --non-interactive
