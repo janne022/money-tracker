@@ -19,6 +19,7 @@ jobs:
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       Azure__SubscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       Azure__Location: 'swedencentral'
+      Azure__ResourceGroup: 'rg-moneytracker'
 
     steps:
       - name: Checkout repository
