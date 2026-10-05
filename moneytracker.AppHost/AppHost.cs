@@ -6,20 +6,6 @@ using Scalar.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Workaround for Windows / WSL2 / Docker Desktop issue where 'localhost' resolves to IPv6 [::1] first, Generated with AI
-// which times out on container ports instead of falling back to IPv4 127.0.0.1 (see https://github.com/microsoft/aspire/issues/14769).
-builder.Eventing.Subscribe<ResourceEndpointsAllocatedEvent>((@event, ct) =>
-{
-    foreach (var ep in @event.Resource.Annotations.OfType<EndpointAnnotation>())
-    {
-        if (ep.AllocatedEndpoint is { Address: "localhost" } alloc)
-        {
-            ep.AllocatedEndpoint = new AllocatedEndpoint(ep, "127.0.0.1", alloc.Port, alloc.BindingMode, alloc.TargetPortExpression, alloc.NetworkID);
-        }
-    }
-    return Task.CompletedTask;
-});
-
 var aca = builder.AddAzureContainerAppEnvironment("moneytracker")
     .WithDashboard(false)
     .ConfigureInfrastructure(infra =>
