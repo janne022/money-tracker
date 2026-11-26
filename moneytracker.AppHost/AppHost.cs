@@ -18,9 +18,6 @@ var aca = builder.AddAzureContainerAppEnvironment("moneytracker")
         env.ProvisionableProperties["EnvironmentMode"] = mode;
     });
 
-var cache = builder.AddAzureManagedRedis("cache")
-    .RunAsContainer();
-
 var postgres = builder.AddAzurePostgresFlexibleServer("moneytrackerdb")
     .RunAsContainer(
         pg => pg.
