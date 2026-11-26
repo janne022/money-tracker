@@ -25,7 +25,13 @@ var server = builder.AddDotnetProject("server", "../moneytracker.Server/moneytra
     .WithReference(db)
     .WaitFor(db)
     .WithHttpHealthCheck("/health")
-    .WithExternalHttpEndpoints().WithComputeEnvironment(aca);
+    .WithExternalHttpEndpoints()
+    .WithComputeEnvironment(aca)
+    .PublishAsAzureContainerApp((infrastructure, container) =>
+    {
+        container.Template.Scale.MinReplicas = 0;
+        container.Template.Scale.MaxReplicas = 1;
+    });
 
 var migrations = server
     .AddEFMigrations("server-migrations")
