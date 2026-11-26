@@ -11,13 +11,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\moneytracker.Server\moneytracker.Server.csproj" />
-    <ProjectReference Include="..\moneytracker.MigrationService\moneytracker.MigrationService.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.Azure.AppContainers" Version="17.0.0" />
     <PackageReference Include="Aspire.Hosting.Azure.PostgreSQL" Version="17.0.0" />
     <PackageReference Include="Aspire.Hosting.Azure.Redis" Version="17.0.0" />
+    <PackageReference Include="Aspire.Hosting.Dotnet" Version="17.0.0" />
+    <PackageReference Include="Aspire.Hosting.EntityFrameworkCore"
+      Version="17.0.0-preview.1.26567.5" />
     <PackageReference Include="Aspire.Hosting.JavaScript" Version="17.0.0" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="17.0.0" />
     <PackageReference Include="Aspire.Hosting.Redis" Version="17.0.0" />

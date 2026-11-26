@@ -6,17 +6,11 @@ using Scalar.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
+#pragma warning disable ASPIREACAEXPRESS001
 var aca = builder.AddAzureContainerAppEnvironment("moneytracker")
     .WithDashboard(false)
-    .ConfigureInfrastructure(infra =>
-    {
-        // Fixes so it doesn't try to select express
-        var env = infra.GetProvisionableResources().OfType<ContainerAppManagedEnvironment>().Single();
-        env.ResourceVersion = "2026-03-02-preview";
-        var mode = new BicepValue<string>("WorkloadProfiles");
-        ((IBicepValue)mode).Self = new BicepValueReference(env, "EnvironmentMode", ["properties", "environmentMode"]);
-        env.ProvisionableProperties["EnvironmentMode"] = mode;
-    });
+    .AsExpress();
+#pragma warning restore ASPIREACAEXPRESS001
 
 var postgres = builder.AddAzurePostgresFlexibleServer("moneytrackerdb")
     .RunAsContainer(
@@ -27,19 +21,21 @@ var postgres = builder.AddAzurePostgresFlexibleServer("moneytrackerdb")
 
 var db = postgres.AddDatabase("serverdb");
 
-var migrationService = builder.AddProject<Projects.moneytracker_MigrationService>("migrationservice")
+var server = builder.AddDotnetProject("server", "../moneytracker.Server/moneytracker.Server.csproj")
     .WithReference(db)
     .WaitFor(db)
-    .WithComputeEnvironment(aca);
-
-var server = builder.AddProject<Projects.moneytracker_Server>("server")
-    .WithReference(db)
-    .WaitFor(db)
-    .WithReference(cache)
-    .WaitFor(cache)
-    .WaitFor(migrationService)
     .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints().WithComputeEnvironment(aca);
+
+var migrations = server
+    .AddEFMigrations("server-migrations")
+    .WithReference(db)
+    .WaitFor(db)
+    .RunDatabaseUpdateOnStart()
+    .PublishAsMigrationBundle(publishContainer: true)
+    .PublishAsAzureContainerAppJob();
+
+server.WaitForCompletion(migrations);
 
 var webfrontend = builder.AddViteApp("webfrontend", "../frontend")
     .WithPnpm()
