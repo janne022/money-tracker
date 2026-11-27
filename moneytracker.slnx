@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="frontend/frontend.esproj">
+    <Build Solution="*|Any CPU" />
+  </Project>
+  <Project Path="moneytracker.AppHost/moneytracker.AppHost.csproj" />
+  <Project Path="moneytracker.Server/moneytracker.Server.csproj" />
+</Solution>

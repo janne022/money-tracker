@@ -21,8 +21,12 @@ var postgres = builder.AddAzurePostgresFlexibleServer("moneytrackerdb")
 
 var db = postgres.AddDatabase("serverdb");
 
+var webfrontend = builder.AddViteApp("webfrontend", "../frontend")
+    .WithPnpm();
+
 var server = builder.AddDotnetProject("server", "../moneytracker.Server/moneytracker.Server.csproj")
     .WithReference(db)
+    .WithReference(webfrontend)
     .WaitFor(db)
     .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints()
@@ -43,10 +47,8 @@ var migrations = server
 
 server.WaitForCompletion(migrations);
 
-var webfrontend = builder.AddViteApp("webfrontend", "../frontend")
-    .WithPnpm()
-    .WithReference(server)
-    .WaitFor(server);
+webfrontend.WithReference(server)
+.WaitFor(server);
 
 var scalar = builder.AddScalarApiReference()
     .ExcludeFromManifest();

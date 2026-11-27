@@ -17,7 +17,7 @@ namespace moneytracker.Server.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.12")
+                .HasAnnotation("ProductVersion", "10.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -176,10 +176,8 @@ namespace moneytracker.Server.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("character varying(15)");
 
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("MemberId1")
+                    b.Property<string>("MemberId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -188,7 +186,7 @@ namespace moneytracker.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId1");
+                    b.HasIndex("MemberId");
 
                     b.ToTable("Categories");
                 });
@@ -267,6 +265,30 @@ namespace moneytracker.Server.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("moneytracker.Server.Domain.Entities.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateOnly>("PaymentDate")
+                        .HasColumnType("date");
+
+                    b.Property<int>("SubscriptionId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubscriptionId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("moneytracker.Server.Domain.Entities.Subscription", b =>
                 {
                     b.Property<int>("Id")
@@ -281,30 +303,28 @@ namespace moneytracker.Server.Migrations
                     b.Property<int>("BillingInterval")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly?>("EndDate")
+                        .HasColumnType("date");
 
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("MemberId1")
+                    b.Property<string>("MemberId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("NextBillingDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("NextBillingDate")
+                        .HasColumnType("date");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -313,7 +333,7 @@ namespace moneytracker.Server.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("MemberId1");
+                    b.HasIndex("MemberId");
 
                     b.ToTable("Subscriptions");
                 });
@@ -373,9 +393,22 @@ namespace moneytracker.Server.Migrations
                 {
                     b.HasOne("moneytracker.Server.Domain.Entities.Member", "Member")
                         .WithMany("Categories")
-                        .HasForeignKey("MemberId1");
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Member");
+                });
+
+            modelBuilder.Entity("moneytracker.Server.Domain.Entities.Payment", b =>
+                {
+                    b.HasOne("moneytracker.Server.Domain.Entities.Subscription", "Subscription")
+                        .WithMany("Payments")
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Subscription");
                 });
 
             modelBuilder.Entity("moneytracker.Server.Domain.Entities.Subscription", b =>
@@ -383,12 +416,13 @@ namespace moneytracker.Server.Migrations
                     b.HasOne("moneytracker.Server.Domain.Entities.Category", "Category")
                         .WithMany("Subscriptions")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("moneytracker.Server.Domain.Entities.Member", "Member")
                         .WithMany("Subscriptions")
-                        .HasForeignKey("MemberId1");
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
@@ -405,6 +439,11 @@ namespace moneytracker.Server.Migrations
                     b.Navigation("Categories");
 
                     b.Navigation("Subscriptions");
+                });
+
+            modelBuilder.Entity("moneytracker.Server.Domain.Entities.Subscription", b =>
+                {
+                    b.Navigation("Payments");
                 });
 #pragma warning restore 612, 618
         }
