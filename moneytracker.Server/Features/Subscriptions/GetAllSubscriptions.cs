@@ -15,7 +15,7 @@ namespace moneytracker.Server.Features.Subscriptions
         private readonly AppDbContext _context = context;
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GetSubscription>>> GetAll()
+        public async Task<ActionResult<GetAllSubscriptionsResponse>> GetAll()
         {
             var userClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userClaim == null)
@@ -28,11 +28,12 @@ namespace moneytracker.Server.Features.Subscriptions
     }
     public static class GetAllSubscriptionsHandler
     {
-        public static async Task<IEnumerable<GetSubscription>> Handle(GetAllSubscriptionsMessage message, AppDbContext context)
+        public static async Task<GetAllSubscriptionsResponse> Handle(GetAllSubscriptionsMessage message, AppDbContext context)
         {
-            return await context.Subscriptions
+            var subscriptions = await context.Subscriptions
                 .AsNoTracking()
                 .Where(s => s.MemberId == message.UserId)
+                .OrderBy(s => s.Name)
                 .Select(s => new GetSubscription
                 (
                     s.Id,
@@ -47,6 +48,28 @@ namespace moneytracker.Server.Features.Subscriptions
                     s.Status
                 ))
                 .ToListAsync();
+
+            var categories = await context.Categories
+                .AsNoTracking()
+                .Where(c => c.MemberId == message.UserId)
+                .OrderBy(c => c.Name)
+                .ToListAsync();
+
+            // Lookup to prevent throwing, then group by category and uncategorized
+            var byCategory = subscriptions.ToLookup(s => s.CategoryId);
+
+            return new GetAllSubscriptionsResponse(
+                [.. categories.Select(c => new CategorySubscriptions
+                (
+                    c.Id,
+                    c.Name,
+                    c.Description,
+                    c.Icon,
+                    c.Color,
+                    [.. byCategory[c.Id]]
+                ))],
+                [.. byCategory[null]]
+            );
         }
     }
 
@@ -62,6 +85,22 @@ namespace moneytracker.Server.Features.Subscriptions
         BillingInterval BillingInterval,
         DateOnly NextBillingDate,
         Status Status
+    );
+
+    public record CategorySubscriptions
+    (
+        int Id,
+        string Name,
+        string Description,
+        string Icon,
+        string Color,
+        IReadOnlyList<GetSubscription> Subscriptions
+    );
+
+    public record GetAllSubscriptionsResponse
+    (
+        IReadOnlyList<CategorySubscriptions> Categories,
+        IReadOnlyList<GetSubscription> Uncategorized
     );
 
     public record GetAllSubscriptionsMessage
