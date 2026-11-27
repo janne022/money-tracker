@@ -48,6 +48,8 @@ import type {
   ResetPasswordRequest,
   TwoFactorRequest,
   TwoFactorResponse,
+  UpdateCategoryRequest,
+  UpdateCategoryResponse,
   UpdateSubscriptionRequest,
   UpdateSubscriptionResponse
 } from './model';
@@ -1599,6 +1601,75 @@ export function useGetApiGetAllCategories<TData = Awaited<ReturnType<typeof getA
 
 
 
+
+export const getPutApiUpdateCategoryIdUrl = (id: number,) => {
+
+
+
+
+  return `/api/UpdateCategory/${id}`
+}
+
+export const putApiUpdateCategoryId = async (id: number,
+    updateCategoryRequest: UpdateCategoryRequest, options?: Parameters<typeof apiFetch>[1]): Promise<UpdateCategoryResponse> => {
+
+  return apiFetch<UpdateCategoryResponse>(getPutApiUpdateCategoryIdUrl(id),
+  {
+    ...options,
+    method: 'PUT',
+    headers: getHeaders({ 'Content-Type': 'application/json' }, options?.headers),
+    body: JSON.stringify(updateCategoryRequest)
+  }
+);}
+
+
+
+
+
+export const getPutApiUpdateCategoryIdMutationKey = () => ['putApiUpdateCategoryId'] as const;
+
+export const getPutApiUpdateCategoryIdMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof putApiUpdateCategoryId>>, TError,PutApiUpdateCategoryIdMutationVariables, TContext>, request?: SecondParameter<typeof apiFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof putApiUpdateCategoryId>>, TError,PutApiUpdateCategoryIdMutationVariables, TContext> => {
+
+const mutationKey = getPutApiUpdateCategoryIdMutationKey();
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof putApiUpdateCategoryId>>, PutApiUpdateCategoryIdMutationVariables> = (props) => {
+          const {id,data} = props ?? {};
+
+          return  putApiUpdateCategoryId(id,data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PutApiUpdateCategoryIdMutationResult = NonNullable<Awaited<ReturnType<typeof putApiUpdateCategoryId>>>
+    export type PutApiUpdateCategoryIdMutationBody = UpdateCategoryRequest
+    export type PutApiUpdateCategoryIdMutationError = unknown
+    export type PutApiUpdateCategoryIdMutationVariables = {id: number;data: UpdateCategoryRequest}
+
+    export const usePutApiUpdateCategoryId = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof putApiUpdateCategoryId>>, TError,PutApiUpdateCategoryIdMutationVariables, TContext>, request?: SecondParameter<typeof apiFetch>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof putApiUpdateCategoryId>>,
+        TError,
+        PutApiUpdateCategoryIdMutationVariables,
+        TContext
+      > => {
+      return useMutation(getPutApiUpdateCategoryIdMutationOptions(options), queryClient);
+    }
 
 export const getGetApiMeUrl = () => {
 

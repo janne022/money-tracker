@@ -34,5 +34,7 @@ export * from './resetPasswordRequest';
 export * from './status';
 export * from './twoFactorRequest';
 export * from './twoFactorResponse';
+export * from './updateCategoryRequest';
+export * from './updateCategoryResponse';
 export * from './updateSubscriptionRequest';
 export * from './updateSubscriptionResponse';
